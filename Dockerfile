@@ -9,6 +9,9 @@ ARG ANDROID_API_LEVEL=34
 ARG GRADLE_VERSION=8.2
 ARG ANDROID_SDK_ROOT=/opt/android
 
+RUN export JAVA_OPTS="-Xmx1024M"
+RUN export GRADLE_OPTS="-Xmx1024M"
+
 
 # Dependencies and needed tools
 RUN apt update -qq && \
