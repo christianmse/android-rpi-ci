@@ -9,10 +9,6 @@ ARG ANDROID_API_LEVEL=34
 ARG GRADLE_VERSION=8.2
 ARG ANDROID_SDK_ROOT=/opt/android
 
-RUN export JAVA_OPTS="-Xmx1024M"
-RUN export GRADLE_OPTS="-Xmx1024M"
-
-
 # Dependencies and needed tools
 RUN apt update -qq && \
     apt install -qq -y git unzip libglu1 libpulse-dev libasound2 libc6 \
@@ -53,6 +49,7 @@ RUN rm /tmp/gradle-${GRADLE_VERSION}-bin.zip
 
 # Set Volome to SDK location
 VOLUME $ANDROID_SDK_ROOT
+VOLUME $JENKINS_HOME
 
 USER jenkins
 WORKDIR /
